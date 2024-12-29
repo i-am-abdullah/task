@@ -6,15 +6,17 @@ export const useGoogleSignIn = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId:"355931551853-ieqmb60u7b0vchorin6bv3tdtpmv29fa.apps.googleusercontent.com"
+    });
+  }, []);
 
   const signIn = async () => {
     setLoading(true);
     setError(null);
 
     try {
-      GoogleSignin.configure({
-        webClientId:"355931551853-ieqmb60u7b0vchorin6bv3tdtpmv29fa.apps.googleusercontent.com"
-      });
       await GoogleSignin.hasPlayServices();
       const user = await GoogleSignin.signIn();
       setUserInfo(user);
