@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 const Dashboard = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome ot the Dashboard!</Text>
+      <Text style={styles.title}>Welcome to the Dashboard!</Text>
 
       <Text style={styles.subtitle}>
         You can now proceed with full access to your account and features.

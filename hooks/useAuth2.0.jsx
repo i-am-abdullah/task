@@ -35,20 +35,10 @@ export const useGoogleSignIn = () => {
     }
   };
 
-  const signOut = async () => {
-    try {
-      await GoogleSignin.signOut();
-      setUserInfo(null);
-    } catch (err) {
-      setError('Error signing out. Please try again.');
-    }
-  };
-
   return {
     userInfo,
     error,
     loading,
     signIn,
-    signOut,
   };
 };

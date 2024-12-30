@@ -6,7 +6,7 @@ import { useGoogleSignIn } from '../../hooks/useAuth2.0';
 const WelcomeScreen = () => {
   const navigation = useNavigation();
   
-  const { userInfo, error, loading, signIn, signOut } = useGoogleSignIn();
+  const { userInfo, error, loading, signIn } = useGoogleSignIn();
 
   const handleSignInWithGoogle = async () => {
     try {

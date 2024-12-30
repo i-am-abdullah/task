@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, KeyboardAvoidingView, Platform, ScrollView, Keyboard, TextInput } from 'react-native';
 import { z } from 'zod';
 import { useNavigation } from '@react-navigation/native';
-import Toast from 'react-native-toast-message';
 
 const SignUpScreen = () => {
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -13,12 +11,11 @@ const SignUpScreen = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
-  const [secureTextEntry, setSecureTextEntry] = useState(true);
   const [showSignInText, setShowSignInText] = useState(true);
   const navigation = useNavigation();
 
   const handleSignUp = () => {
-    navigation.navigate('Legal');
+    navigation.navigate('Signin');
   };
 
   const emailSchema = z.string().email({ message: 'Invalid email address' });
@@ -98,7 +95,7 @@ const SignUpScreen = () => {
         <TextInput
           style={[styles.input, passwordError && styles.inputError]}
           placeholder="Password"
-          secureTextEntry={secureTextEntry}
+          secureTextEntry={true}
           value={password}
           onChangeText={(text) => {
             setPassword(text);
@@ -111,7 +108,7 @@ const SignUpScreen = () => {
         <TextInput
           style={[styles.input, confirmPasswordError && styles.inputError]}
           placeholder="Confirm Password"
-          secureTextEntry={secureTextEntry}
+          secureTextEntry={true}
           value={confirmPassword}
           onChangeText={setConfirmPassword}
           onBlur={validateConfirmPassword}
@@ -137,7 +134,6 @@ const SignUpScreen = () => {
           </View>
         )}
 
-        <Toast />
       </ScrollView>
     </KeyboardAvoidingView>
   );

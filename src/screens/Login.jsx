@@ -16,7 +16,7 @@ const SignInScreen = () => {
 
   const handleLogin = () => {
     if (email === 'test@gmail.com' && password === 'test@123') {
-      navigation.navigate('SetBiometric');
+      navigation.navigate('Dashboard');
     } else {
       Toast.show({
         type: 'error',
